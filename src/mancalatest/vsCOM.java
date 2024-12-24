@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 
 public abstract class vsCOM extends Board {
-    private int[] stones = {4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0};
+    private final int[] stones = {4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0};
     private boolean isPlayerOneTurn = true; // true: Player 1, false: COM
 
     @Override
@@ -24,21 +24,21 @@ public abstract class vsCOM extends Board {
     private void handlePitClick(int pitIndex) {
         // Validasi giliran pemain
         if (isPlayerOneTurn && (pitIndex < 0 || pitIndex > 5)) {
-            JOptionPane.showMessageDialog(this, "Pilih lubang Anda sendiri.");
+            JOptionPane.showMessageDialog(this, "It's not your turn to play this pit.");
             return;
         }
 
         // Ambil jumlah batu dari lubang yang dipilih
         final int[] stonesInHand = {stones[pitIndex]};
         if (stonesInHand[0] == 0) {
-            JOptionPane.showMessageDialog(this, "Lubang ini kosong. Pilih lubang lain.");
+            JOptionPane.showMessageDialog(this, "This pit is empty. Choose another pit.");
             return;
         }
 
         stones[pitIndex] = 0; // Kosongkan lubang yang dipilih
         updateBoard();
 
-        SwingWorker<Void, Integer> worker = new SwingWorker<>() {
+        new SwingWorker<Void, Integer>() {
             private int currentIndex = pitIndex;
 
             @Override
@@ -78,9 +78,7 @@ public abstract class vsCOM extends Board {
                     handleComMove();
                 }
             }
-        };
-
-        worker.execute();
+        }.execute();
     }
 
     private void handleComMove() {

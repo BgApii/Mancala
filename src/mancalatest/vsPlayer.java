@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 
 public abstract class vsPlayer extends Board {
-    private int[] stones = {4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0};
+    private final int[] stones = {4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0};
     private boolean isPlayerOneTurn = true; // true: Player 1, false: Player 2
 
 
@@ -137,8 +137,5 @@ public abstract class vsPlayer extends Board {
             String winner = stones[6] > stones[13] ? "Player 1 wins!" : stones[13] > stones[6] ? "Player 2 wins!" : "It's a draw!";
             JOptionPane.showMessageDialog(this, winner);
         }
-
-
     }
-
 }
