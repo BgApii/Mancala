@@ -2,15 +2,17 @@ package mancalatest;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public abstract class GUI extends JFrame implements MouseListener {
-    private final ImageIcon boardIcon = new ImageIcon("src/image/board1.png");
+public abstract class Board extends JFrame implements MouseListener {
+    private final ImageIcon boardIcon = new ImageIcon("src/image/board.png");
     static final ImageIcon[] stoneIcons = new ImageIcon[49];
     static final JLabel[] pits = new JLabel[14];
     static final JLabel[] pitLabels = new JLabel[14];
 
-    public GUI() {
+    public Board() {
         initializeIcons();
         initComponents();
     }
@@ -39,15 +41,27 @@ public abstract class GUI extends JFrame implements MouseListener {
 
             jPanel1.add(pits[i]);
             jPanel1.add(pitLabels[i]);
+
+            JLabel b_gameType = new JLabel(new ImageIcon("src/image/b_gameType.png"));
+            b_gameType.setBounds(1120, 40, 100, 100);
+            add(b_gameType);
+            b_gameType.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    GameTypes gameTypes = new GameTypes();
+                    gameTypes.setVisible(true);
+                    dispose();
+                }
+            });
         }
 
         // Set bounds for pits and labels
         int[][] pitBounds = {
-                {220, 410, 70, 80}, {370, 410, 70, 80}, {530, 410, 70, 80},
-                {690, 410, 70, 80}, {840, 410, 70, 80}, {1000, 410, 70, 80},
-                {1130, 300, 80, 150}, {1000, 240, 70, 80}, {840, 240, 70, 80},
-                {690, 240, 70, 80}, {530, 240, 70, 80}, {380, 240, 70, 80},
-                {220, 240, 70, 80}, {67, 296, 80, 150}
+                {200, 390, 100, 120}, {360, 390, 100, 120}, {520, 390,100, 120},
+                {670, 390, 100, 120}, {830, 390, 100, 120}, {980, 390, 100, 120},
+                {1100, 290, 140, 150}, {980, 220, 120, 100}, {830, 220, 120, 100},
+                {670, 220, 120, 100}, {520, 220, 120, 100}, {360, 220, 120, 100},
+                {200, 220, 120, 100}, {37, 296, 140, 150}
         };
 
         int[][] labelBounds = {
@@ -83,4 +97,5 @@ public abstract class GUI extends JFrame implements MouseListener {
             pitLabels[i].setText(String.valueOf(initialStones[i]));
         }
     }
+
 }
