@@ -1,4 +1,4 @@
-package mancalatest;
+package mancala;
 
 import javax.swing.*;
 

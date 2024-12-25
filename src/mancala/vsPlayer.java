@@ -1,4 +1,4 @@
-package mancalatest;
+package mancala;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -138,7 +138,8 @@ public abstract class vsPlayer extends Board {
 
             updateBoard();
 
-            String winner = stones[6] > stones[13] ? "Player 1 wins!" : stones[13] > stones[6] ? "Player 2 wins!" : "It's a draw!";
+            String winner = stones[6] > stones[13] ? "Player 1 wins!" :
+                    stones[13] > stones[6] ? "Player 2 wins!" : "It's a draw!";
             JOptionPane.showMessageDialog(this, winner);
         }
     }

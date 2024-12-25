@@ -1,4 +1,4 @@
-package mancalatest;
+package mancala;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -117,29 +117,28 @@ public abstract class vsCOM extends Board {
             return evaluateBoard(board);
         }
 
-        int[] tempBoard = board.clone();
-        simulateMove(tempBoard, pitIndex, isMaximizing);
-
         if (isMaximizing) {
             int maxEval = Integer.MIN_VALUE;
-
             for (int i = 7; i < 13; i++) {
-                if (tempBoard[i] > 0) {
+                if (board[i] > 0) {
+                    int[] tempBoard = board.clone();
+                    simulateMove(tempBoard, pitIndex, true);
                     int eval = minimax(tempBoard, i, depth - 1, false);
                     maxEval = Math.max(maxEval, eval);
                 }
             }
             return maxEval;
+
         } else {
             int minEval = Integer.MAX_VALUE;
-
             for (int i = 0; i < 6; i++) {
-                if (tempBoard[i] > 0) {
+                if (board[i] > 0) {
+                    int[] tempBoard = board.clone();
+                    simulateMove(tempBoard, pitIndex, false);
                     int eval = minimax(tempBoard, i, depth - 1, true);
                     minEval = Math.min(minEval, eval);
                 }
             }
-
             return minEval;
         }
     }
