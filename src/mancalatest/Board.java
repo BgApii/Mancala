@@ -11,6 +11,7 @@ public abstract class Board extends JFrame implements MouseListener {
     static final ImageIcon[] stoneIcons = new ImageIcon[49];
     static final JLabel[] pits = new JLabel[14];
     static final JLabel[] pitLabels = new JLabel[14];
+    static JLabel turn = new JLabel();
 
     public Board() {
         initializeIcons();
@@ -32,6 +33,7 @@ public abstract class Board extends JFrame implements MouseListener {
 
         for (int i = 0; i < 14; i++) {
             pits[i] = new JLabel();
+            pits[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
             pitLabels[i] = new JLabel();
             pitLabels[i].setFont(new Font("Perpetua", Font.BOLD, 36));
             pitLabels[i].setForeground(Color.WHITE);
@@ -41,19 +43,32 @@ public abstract class Board extends JFrame implements MouseListener {
 
             jPanel1.add(pits[i]);
             jPanel1.add(pitLabels[i]);
-
-            JLabel b_gameType = new JLabel(new ImageIcon("src/image/b_gameType.png"));
-            b_gameType.setBounds(1120, 40, 100, 100);
-            add(b_gameType);
-            b_gameType.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    GameTypes gameTypes = new GameTypes();
-                    gameTypes.setVisible(true);
-                    dispose();
-                }
-            });
         }
+
+        JLabel l_turn = new JLabel(new ImageIcon("src/image/Turn.png"));
+        l_turn.setBounds(50, 30, 200, 100);
+        jPanel1.add(l_turn);
+
+        turn.setText("Player 1");
+        turn.setFont(new Font("Script MT Bold", Font.PLAIN, 30));
+        turn.setForeground(Color.WHITE);
+        turn.setHorizontalAlignment(SwingConstants.CENTER);
+        turn.setBounds(80, 48, 130, 60);
+        add(turn);
+
+        JLabel b_gameType = new JLabel(new ImageIcon("src/image/b_gameType.png"));
+        b_gameType.setBounds(1120, 40, 100, 100);
+        b_gameType.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        jPanel1.add(b_gameType);
+
+        b_gameType.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                GameTypes gameTypes = new GameTypes();
+                gameTypes.setVisible(true);
+                dispose();
+            }
+        });
 
         // Set bounds for pits and labels
         int[][] pitBounds = {

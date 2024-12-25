@@ -26,20 +26,21 @@ public class AboutUs extends JFrame {
         aboutTextArea.setText("""
                 Welcome to the Mancala Game Project!
                 
-                We are a small yet passionate team of two, united by our love for traditional games and our vision to bring them into the
-                modern digital world. Mancala, a classic strategy game enjoyed by generations, has inspired us to create an engaging and
-                innovative gaming experience.
+                We are a small yet passionate team of two, united by our love for traditional games and our vision to bring them into
+                themodern digital world. Mancala, a classic strategy game enjoyed by generations, has inspired us to create an engaging
+                and innovative gaming experience.
                 
-                Meet Our Team
+                Meet Our Team:
+                [Apri Supandi Pasaribu] – Project Manager and Analyst
+                Responsible for overseeing the project timeline, ensuring smooth progress in every phase, and managing team coordination
+                for effective communication and collaboration. Additionally, analyzes gameplay data and user feedback to guide
+                development, ensures the game aligns with user needs, and implements the designed concepts into the game mechanics.
                 
-                [M. Lukman Hakim] – Project Manager
-                Responsible for managing the project timeline, and coordinating tasks.
+                [M. Lukman Hakim] – Designer
+                Focuses on creating visually appealing and user-friendly designs that enhance the overall gaming experience. Responsible for
+                crafting intuitive interfaces and aesthetically pleasing elements that make the game enjoyable and accessible to players.
                 
-                [Apri Supandi Pasaribu] – Analyst and Designer
-                Combines analytical skills to develop the game’s core concept and mechanics with creative design expertise to craft an
-                intuitive and visually appealing user interface. This role ensures the game is both functional and enjoyable for players.
-                
-                Our Mission
+                Our Mission:
                 To create a digital version of Mancala that is fun, easy to play, and accessible to everyone, while keeping the essence of
                 this cultural treasure alive.
                 
@@ -50,7 +51,7 @@ public class AboutUs extends JFrame {
         aboutTextArea.setOpaque(false); // Membuat background transparan
         aboutTextArea.setEditable(false); // Membuat teks tidak dapat diubah
         aboutTextArea.setForeground(Color.WHITE); // Warna teks
-        aboutTextArea.setBounds(140, 140, 1010, 504); // Atur posisi dan ukuran
+        aboutTextArea.setBounds(120, 140, 1030, 504); // Atur posisi dan ukuran
         add(aboutTextArea);
 
         // Label untuk kembali ke Main Menu
@@ -67,16 +68,6 @@ public class AboutUs extends JFrame {
                 MainMenu mainMenu = new MainMenu();
                 mainMenu.setVisible(true); // Tampilkan Main Menu
                 dispose(); // Tutup frame About Us
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                backLabel.setForeground(Color.WHITE); // Ubah warna saat mouse di atas label
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                backLabel.setForeground(Color.CYAN); // Kembalikan warna saat mouse keluar
             }
         });
 

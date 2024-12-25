@@ -82,6 +82,7 @@ public class GameTypes extends JFrame {
                     public void mouseExited(MouseEvent e) {}
                 };
                 vsplayer.setVisible(true); // Tampilkan Frame 2
+                dispose(); // Tutup frame Game Types
             }
         });
 
@@ -111,6 +112,7 @@ public class GameTypes extends JFrame {
                     }
                 };
                 vscom.setVisible(true);
+                dispose();
             }
         });
 
@@ -120,16 +122,6 @@ public class GameTypes extends JFrame {
                 MainMenu mainMenu = new MainMenu();
                 mainMenu.setVisible(true); // Tampilkan Main Menu
                 dispose(); // Tutup frame Game Types
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                backLabel.setForeground(Color.WHITE); // Ubah warna saat mouse di atas label
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                backLabel.setForeground(Color.CYAN); // Kembalikan warna saat mouse keluar
             }
         });
     }

@@ -44,7 +44,7 @@ public abstract class vsCOM extends Board {
             @Override
             protected Void doInBackground() throws Exception {
                 while (stonesInHand[0] > 0) {
-                    Thread.sleep(500); // Delay untuk animasi
+                    Thread.sleep(400); // Delay untuk animasi
 
                     currentIndex = (currentIndex + 1) % stones.length;
 
@@ -129,7 +129,6 @@ public abstract class vsCOM extends Board {
                     maxEval = Math.max(maxEval, eval);
                 }
             }
-
             return maxEval;
         } else {
             int minEval = Integer.MAX_VALUE;
@@ -214,6 +213,11 @@ public abstract class vsCOM extends Board {
         for (int i = 0; i < pits.length; i++) {
             pits[i].setIcon(stoneIcons[stones[i]]);
             pitLabels[i].setText(String.valueOf(stones[i]));
+        }
+        if (isPlayerOneTurn){
+            Board.turn.setText("Player 1");
+        } else {
+            Board.turn.setText("COM");
         }
     }
 

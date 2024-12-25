@@ -63,16 +63,6 @@ public class Rules extends JFrame {
                 mainMenu.setVisible(true); // Tampilkan Main Menu
                 dispose(); // Tutup frame About Us
             }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                backLabel.setForeground(Color.WHITE); // Ubah warna saat mouse di atas label
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                backLabel.setForeground(Color.CYAN); // Kembalikan warna saat mouse keluar
-            }
         });
 
         // Mengatur urutan komponen

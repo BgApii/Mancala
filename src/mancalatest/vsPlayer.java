@@ -7,7 +7,6 @@ public abstract class vsPlayer extends Board {
     private final int[] stones = {4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0};
     private boolean isPlayerOneTurn = true; // true: Player 1, false: Player 2
 
-
     @Override
     public void mouseClicked(MouseEvent e) {
         // Identify which pit is clicked
@@ -42,7 +41,7 @@ public abstract class vsPlayer extends Board {
             @Override
             protected Void doInBackground() throws Exception {
                 while (stonesInHand[0] > 0) {
-                    Thread.sleep(500); // Delay 500ms
+                    Thread.sleep(400); // Delay 400ms
                     currentIndex = (currentIndex + 1) % stones.length;
 
                     // Lewati Mancala lawan
@@ -105,6 +104,11 @@ public abstract class vsPlayer extends Board {
         for (int i = 0; i < pits.length; i++) {
             pits[i].setIcon(stoneIcons[stones[i]]);
             pitLabels[i].setText(String.valueOf(stones[i]));
+        }
+        if (isPlayerOneTurn){
+            Board.turn.setText("Player 1");
+        } else {
+            Board.turn.setText("Player 2");
         }
     }
 
