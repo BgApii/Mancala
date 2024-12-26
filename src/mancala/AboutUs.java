@@ -24,27 +24,27 @@ public class AboutUs extends JFrame {
         // JTextArea untuk menulis informasi About Us
         JTextArea aboutTextArea = new JTextArea();
         aboutTextArea.setText("""
-                Welcome to the Mancala Game Project!
+                Selamat Datang di Proyek Permainan Mancala!
                 
-                We are a small yet passionate team of two, united by our love for traditional games and our vision to bring them into
-                themodern digital world. Mancala, a classic strategy game enjoyed by generations, has inspired us to create an engaging
-                and innovative gaming experience.
+                Kami adalah tim kecil yang penuh semangat, terdiri dari dua orang, yang dipersatukan oleh kecintaan kami pada permainan tradisional dan
+                visi kami untuk membawanya ke dunia digital modern. Mancala, sebuah permainan strategi klasik yang telah dinikmati oleh banyak generasi,
+                telah menginspirasi kami untuk menciptakan pengalaman bermain yang menarik dan inovatif.
                 
-                Meet Our Team:
-                [Apri Supandi Pasaribu] – Project Manager and Analyst
-                Responsible for overseeing the project timeline, ensuring smooth progress in every phase, and managing team coordination
-                for effective communication and collaboration. Additionally, analyzes gameplay data and user feedback to guide
-                development, ensures the game aligns with user needs, and implements the designed concepts into the game mechanics.
+                Kenali Tim Kami:
+                [Apri Supandi Pasaribu] – Manajer Proyek dan Analis
+                Bertanggung jawab untuk mengawasi jadwal proyek, memastikan kelancaran setiap fase, serta mengelola koordinasi tim agar komunikasi dan
+                kolaborasi berjalan efektif. Selain itu, menganalisis data permainan dan masukan pengguna untuk memandu pengembangan, memastikan permainan
+                sesuai dengan kebutuhan pengguna, serta menerapkan konsep yang telah dirancang ke dalam mekanika permainan.
                 
-                [M. Lukman Hakim] – Designer
-                Focuses on creating visually appealing and user-friendly designs that enhance the overall gaming experience. Responsible for
-                crafting intuitive interfaces and aesthetically pleasing elements that make the game enjoyable and accessible to players.
+                [M. Lukman Hakim] – Desainer
+                Berfokus pada pembuatan desain yang menarik secara visual dan ramah pengguna untuk meningkatkan pengalaman bermain secara keseluruhan.
+                Bertanggung jawab menciptakan antarmuka yang intuitif dan elemen estetis yang menyenangkan agar permainan dapat dinikmati oleh Pemain.
                 
-                Our Mission:
-                To create a digital version of Mancala that is fun, easy to play, and accessible to everyone, while keeping the essence of
-                this cultural treasure alive.
+                Misi Kami:
+                Untuk menciptakan versi digital dari Mancala yang menyenangkan, mudah dimainkan, dan dapat diakses oleh semua orang, sambil menjaga esensi
+                dari warisan budaya ini tetap hidup.
                 
-                Thank you for supporting our project. We hope you enjoy the game as much as we enjoyed building it!""");
+                Terima kasih telah mendukung proyek kami. Kami berharap Anda menikmati permainan ini seperti halnya kami menikmati proses pembuatannya!""");
 
         aboutTextArea.setFont(new Font("Berlin Sans FB", Font.PLAIN, 20));
         aboutTextArea.setBorder(null); // Menghilangkan border
