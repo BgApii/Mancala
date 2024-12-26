@@ -7,7 +7,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public abstract class Board extends JFrame implements MouseListener {
-    private final ImageIcon boardIcon = new ImageIcon("src/image/board.png");
     static final ImageIcon[] stoneIcons = new ImageIcon[49];
     static final JLabel[] pits = new JLabel[14];
     static final JLabel[] pitLabels = new JLabel[14];
@@ -25,11 +24,10 @@ public abstract class Board extends JFrame implements MouseListener {
     }
 
     private void initComponents() {
-        JPanel jPanel1 = new JPanel();
-        JLabel mainboard = new JLabel();
 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jPanel1.setLayout(null);
+        setTitle("Board");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLayout(null);
 
         for (int i = 0; i < 14; i++) {
             pits[i] = new JLabel();
@@ -41,13 +39,9 @@ public abstract class Board extends JFrame implements MouseListener {
 
             pits[i].addMouseListener(this);
 
-            jPanel1.add(pits[i]);
-            jPanel1.add(pitLabels[i]);
+            add(pits[i]);
+            add(pitLabels[i]);
         }
-
-        JLabel l_turn = new JLabel(new ImageIcon("src/image/Turn.png"));
-        l_turn.setBounds(50, 30, 200, 100);
-        jPanel1.add(l_turn);
 
         turn.setText("Player 1");
         turn.setFont(new Font("Script MT Bold", Font.PLAIN, 30));
@@ -56,10 +50,20 @@ public abstract class Board extends JFrame implements MouseListener {
         turn.setBounds(80, 48, 130, 60);
         add(turn);
 
+        JLabel l_turn = new JLabel(new ImageIcon("src/image/Turn.png"));
+        l_turn.setBounds(50, 30, 200, 100);
+        add(l_turn);
+
         JLabel b_gameType = new JLabel(new ImageIcon("src/image/b_gameType.png"));
         b_gameType.setBounds(1120, 40, 100, 100);
         b_gameType.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        jPanel1.add(b_gameType);
+        add(b_gameType);
+
+        ImageIcon boardIcon = new ImageIcon("src/image/board.png");
+        JLabel mainboard = new JLabel();
+        mainboard.setIcon(boardIcon);
+        mainboard.setBounds(0, 0, 1280, 720);
+        add(mainboard);
 
         b_gameType.addMouseListener(new MouseAdapter() {
             @Override
@@ -91,13 +95,6 @@ public abstract class Board extends JFrame implements MouseListener {
             pits[i].setBounds(pitBounds[i][0], pitBounds[i][1], pitBounds[i][2], pitBounds[i][3]);
             pitLabels[i].setBounds(labelBounds[i][0], labelBounds[i][1], labelBounds[i][2], labelBounds[i][3]);
         }
-
-        mainboard.setIcon(boardIcon);
-        mainboard.setBounds(0, 0, 1280, 720);
-        jPanel1.add(mainboard);
-
-        getContentPane().setLayout(new BorderLayout());
-        getContentPane().add(jPanel1, BorderLayout.CENTER);
 
         setSize(1280, 720);
         setLocationRelativeTo(null);

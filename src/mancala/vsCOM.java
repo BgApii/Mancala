@@ -23,7 +23,12 @@ public abstract class vsCOM extends Board {
 
     private void handlePitClick(int pitIndex) {
         // Validasi giliran pemain
-        if (isPlayerOneTurn && (pitIndex < 0 || pitIndex > 5)) {
+        if (pitIndex == 6 || pitIndex == 13) {
+            JOptionPane.showMessageDialog(this, "You can't play Mancala.");
+            return;
+        }
+
+        if (isPlayerOneTurn && (pitIndex < 0 || pitIndex > 6)) {
             JOptionPane.showMessageDialog(this, "It's not your turn to play this pit.");
             return;
         }

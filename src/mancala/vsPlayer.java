@@ -20,8 +20,13 @@ public abstract class vsPlayer extends Board {
 
     private void handlePitClick(int pitIndex) {
         // Validasi giliran pemain
-        if (isPlayerOneTurn && (pitIndex < 0 || pitIndex > 5) ||
-                !isPlayerOneTurn && (pitIndex < 7 || pitIndex > 12)) {
+        if (pitIndex == 6 || pitIndex == 13) {
+            JOptionPane.showMessageDialog(this, "You can't play Mancala.");
+            return;
+        }
+
+        if (isPlayerOneTurn && (pitIndex < 0 || pitIndex > 6) ||
+                !isPlayerOneTurn && (pitIndex < 7 || pitIndex > 13)) {
             JOptionPane.showMessageDialog(this, "It's not your turn to play this pit.");
             return;
         }
@@ -42,7 +47,7 @@ public abstract class vsPlayer extends Board {
             protected Void doInBackground() throws Exception {
                 while (stonesInHand[0] > 0) {
                     Thread.sleep(400); // Delay 400ms
-                    currentIndex = (currentIndex + 1) % stones.length;
+                    currentIndex = (currentIndex + 1) % stones.length; // Pindah ke lubang berikutnya
 
                     // Lewati Mancala lawan
                     if ((isPlayerOneTurn && currentIndex == 13) || (!isPlayerOneTurn && currentIndex == 6)) {
@@ -57,7 +62,7 @@ public abstract class vsPlayer extends Board {
             }
 
             @Override
-            protected void process(java.util.List<Integer> chunks) {
+               protected void process(java.util.List<Integer> chunks) {
                 // Perbarui tampilan setelah setiap distribusi batu
                 for (int index : chunks) {
                     pits[index].setIcon(stoneIcons[stones[index]]);

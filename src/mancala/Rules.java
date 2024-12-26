@@ -10,7 +10,7 @@ public class Rules extends JFrame {
         // Mengatur properti JFrame
         setTitle("About Us");
         setSize(1280, 720);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null); // Menggunakan layout null
 
